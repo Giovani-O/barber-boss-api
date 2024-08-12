@@ -46,7 +46,8 @@ Além disso, a aplicação deverá contar com uma tratativa robusta de erros, fi
 	1. A API deve ser hospedada no Azure
 ## Diagrama
 Estes são os projetos que a solução deve ter e suas dependências, bem como qual projeto deverá se comunicar com o banco de dados. A seta indica de qual outro projeto um projeto é dependente, por exemplo, BarberBoss.Infrastructure depende de BarberBoss.Domain.
-![image](https://github.com/user-attachments/assets/96a9a420-c766-47f5-83e9-c45ec2a4665e)
+![image](https://github.com/user-attachments/assets/99adfcb9-5800-4195-b4f7-ce5af89e8c20)
+
 
 
 ## Entidades
