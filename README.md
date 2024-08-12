@@ -6,7 +6,7 @@ Além disso, a aplicação deverá contar com uma tratativa robusta de erros, fi
 ## Requisitos funcionais
 1. **Usuários**
 	1. Cadastro, visualização, edição e exclusão
-	2. Autenticaçã́o com JWT
+	2. Autenticação com JWT
 	3. Criação e gerenciamento de barbearias
 	4. Criação e gerenciamento de faturamentos
 	5. Emissão de relatórios em excel e PDF
