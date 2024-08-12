@@ -3,11 +3,6 @@ O objetivo deste projeto é o desenvolvimento de uma API completa para gerenciar
 Em cada barbearia, será possível criar, visualizar, editar e excluir faturamentos (a receita de cada serviço prestado), e também deve ser possível gerar e exportar relatórios sob demanda com os faturamentos dos últimos 7 dias.
 Além disso, a aplicação deverá contar com uma tratativa robusta de erros, filtros de exceções e testes unitários e de integração, e por fim, deve ser publicada utilizando o Azure.
 
-Links do notion:
-[Barber Boss I](https://efficient-sloth-d85.notion.site/Desafio-pr-tico-BarberBoss-I-f6b1a94a99204cfb8dd30579c8b567ce)
-[Barber Boss II](https://efficient-sloth-d85.notion.site/Desafio-pr-tico-BarberBoss-II-3b15bf9038e94b77b396680c1178a174)
-[Barber Boss III](https://efficient-sloth-d85.notion.site/Desafio-pr-tico-BarberBoss-III-efb3e4793a0a4985beca7ff47ce5a871)
-
 ## Requisitos funcionais
 1. **Usuários**
 	1. Cadastro, visualização, edição e exclusão
@@ -51,7 +46,8 @@ Links do notion:
 	1. A API deve ser hospedada no Azure
 ## Diagrama
 Estes são os projetos que a solução deve ter e suas dependências, bem como qual projeto deverá se comunicar com o banco de dados. A seta indica de qual outro projeto um projeto é dependente, por exemplo, BarberBoss.Infrastructure depende de BarberBoss.Domain.
-![[Pasted image 20240812142515.png]]
+![image](https://github.com/user-attachments/assets/96a9a420-c766-47f5-83e9-c45ec2a4665e)
+
 
 ## Entidades
 **User**
@@ -87,7 +83,7 @@ public class Income {
 ```
 
 ## Endpoints
-###### User
+##### User
 1. **GET** /user
 	1. Obtem todos os usuários
 	2. Pode retornar
@@ -117,7 +113,7 @@ public class Income {
 		2. 400 Bad Request
 		3. 404 Not Found
 
-###### Barber shop
+##### Barber shop
 1. **GET** /barber-shop/{userId}
 	1. Obtem todas as barbearias de um usuário através de seu id, informado na URL
 	2. Pode retornar
@@ -148,7 +144,7 @@ public class Income {
 		2. 400 Bad Request
 		3. 404 Not Found
 
-###### Income
+##### Income
 1. **GET** /income/{barberShopId}
 	1. Obtem todos os faturamentos de uma barbearia pelo id, informado na URL
 	2. Pode retornar
@@ -179,7 +175,7 @@ public class Income {
 		2. 400 Bad Request
 		3. 404 Not Found
 
-###### Report
+##### Report
 1. **GET** /report/excel/{barberShopId}
 	1. Gera o relatório de faturamentos de uma barbearia nos últimos 7 dias no formato xlsx
 	2. Pode retornar
