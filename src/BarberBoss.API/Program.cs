@@ -1,4 +1,5 @@
 using BarberBoss.Infrastructure;
+using BarberBoss.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,4 +21,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+await MigrateDatabase();
+
 app.Run();
+
+async Task MigrateDatabase()
+{
+    await using var scope = app.Services.CreateAsyncScope();
+
+    await DatabaseMigration.MigrateDatabase(scope.ServiceProvider);
+}

@@ -7,11 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Class1.cs" />
-      <Compile Remove="Migrations\**" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\BarberBoss.Domain\BarberBoss.Domain.csproj" />
     </ItemGroup>
 
@@ -23,14 +18,6 @@
       </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="Migrations\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Migrations\**" />
     </ItemGroup>
 
 </Project>

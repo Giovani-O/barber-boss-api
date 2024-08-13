@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
  *
  * dotnet ef migrations add InitialMigration --startup-project ./BarberBoss.API/ --project ./BarberBoss.Infrastructure/
  * dotnet ef database update --startup-project ./BarberBoss.API/ --project ./BarberBoss.Infrastructure/
+ *
+ * Apenas uma dica, caso você tenha problemas com migrações no futuro:
+ * Verifique o .csproj e veja se tem alguma tag <Compile /> ;)
  * 
  */
 
