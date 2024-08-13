@@ -1,15 +1,14 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BarberBoss.Domain.Entities;
 
 public class BarberShop
 {
-    public Guid Id { get; set; }
+    public long Id { get; set; }
     public string Name { get; set; } = string.Empty;
     
-    [ForeignKey("UserId")]
-    public Guid UserId { get; set; }
+
+    public long UserId { get; set; }
     public User User { get; set; } = default!;
-    
-    public ICollection<Income> Incomes { get; set; } = new List<Income>();
 }

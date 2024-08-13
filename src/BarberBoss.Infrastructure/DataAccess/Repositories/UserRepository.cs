@@ -21,9 +21,9 @@ internal class UserRepository(BarberBossDbContext dbContext)
     /// <summary>
     /// Get a user by id from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>User</returns>
-    async Task<User?> IUserReadOnlyRepository.GetById(Guid id)
+    async Task<User?> IUserReadOnlyRepository.GetById(long id)
     {
         return await _dbContext.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
     }
@@ -40,9 +40,9 @@ internal class UserRepository(BarberBossDbContext dbContext)
     /// <summary>
     /// Get a user by id for update from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>User</returns>
-    async Task<User?> IUserUpdateOnlyRepository.GetById(Guid id)
+    async Task<User?> IUserUpdateOnlyRepository.GetById(long id)
     {
         return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
     }
@@ -59,9 +59,9 @@ internal class UserRepository(BarberBossDbContext dbContext)
     /// <summary>
     /// Delete a user by id from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>bool</returns>
-    public async Task<bool> Delete(Guid id)
+    public async Task<bool> Delete(long id)
     {
         var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
         if (user is null)

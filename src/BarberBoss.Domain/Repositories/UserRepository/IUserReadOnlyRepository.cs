@@ -13,7 +13,7 @@ public interface IUserReadOnlyRepository
     /// <summary>
     /// Get a user by id
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>User</returns>
-    Task<User?> GetById(Guid id);
+    Task<User?> GetById(long id);
 }

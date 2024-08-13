@@ -7,9 +7,9 @@ public interface IBarberShopUpdateOnlyRepository
     /// <summary>
     /// Get barber shop by id for update
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>BarberShop</returns>
-    Task<BarberShop?> GetById(Guid id);
+    Task<BarberShop?> GetById(long id);
 
     /// <summary>
     /// Updates a barber shop

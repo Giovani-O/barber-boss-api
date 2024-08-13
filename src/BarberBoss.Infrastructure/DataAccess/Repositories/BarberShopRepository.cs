@@ -12,9 +12,9 @@ internal class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShop
     /// <summary>
     /// Get all barber shops of a user from the database.
     /// </summary>
-    /// <param name="userId">Guid</param>
+    /// <param name="userId">long</param>
     /// <returns>List of BarberShop</returns>
-    public async Task<List<BarberShop>> GetAllByUserId(Guid userId)
+    public async Task<List<BarberShop>> GetAllByUserId(long userId)
     {
         return await _dbContext.BarberShops.AsNoTracking().Where(b => b.UserId == userId).ToListAsync();
     }
@@ -22,9 +22,9 @@ internal class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShop
     /// <summary>
     /// Get a barber shop by id from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>BarberShop?</returns>
-    async Task<BarberShop?> IBarberShopReadOnlyRepository.GetById(Guid id)
+    async Task<BarberShop?> IBarberShopReadOnlyRepository.GetById(long id)
     {
         return await _dbContext.BarberShops.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
     }
@@ -41,9 +41,9 @@ internal class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShop
     /// <summary>
     /// Get a barber shop by id for update from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>BarberShop?</returns>
-    async Task<BarberShop?> IBarberShopUpdateOnlyRepository.GetById(Guid id)
+    async Task<BarberShop?> IBarberShopUpdateOnlyRepository.GetById(long id)
     {
         return await _dbContext.BarberShops.FirstOrDefaultAsync(b => b.Id == id);
     }
@@ -60,9 +60,9 @@ internal class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShop
     /// <summary>
     /// Delete a barber shop by id from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>bool</returns>
-    public async Task<bool> Delete(Guid id)
+    public async Task<bool> Delete(long id)
     {
         var barberShop = await _dbContext.BarberShops.FirstOrDefaultAsync(b => b.Id == id);
         if (barberShop is null)

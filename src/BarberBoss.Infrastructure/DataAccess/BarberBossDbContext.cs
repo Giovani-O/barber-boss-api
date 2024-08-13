@@ -1,24 +1,17 @@
 using BarberBoss.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BarberBoss.Infrastructure.DataAccess;
+/* Migrations, should be run inside of src
+ *
+ * dotnet ef migrations add InitialMigration --startup-project ./BarberBoss.API/ --project ./BarberBoss.Infrastructure/
+ * dotnet ef database update --startup-project ./BarberBoss.API/ --project ./BarberBoss.Infrastructure/
+ * 
+ */
 
-internal class BarberBossDbContext(DbContextOptions options) : DbContext(options)
+namespace BarberBoss.Infrastructure.DataAccess;
+internal class BarberBossDbContext(DbContextOptions<BarberBossDbContext> options) : DbContext(options)
 {
     public DbSet<User> Users { get; set; }
     public DbSet<BarberShop> BarberShops { get; set; }
     public DbSet<Income> Incomes { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<BarberShop>()
-            .HasOne(b => b.User)
-            .WithMany(u => u.BarberShops)
-            .HasForeignKey(b => b.UserId);
-        
-        modelBuilder.Entity<Income>()
-            .HasOne(i => i.BarberShop)
-            .WithMany(b => b.Incomes)
-            .HasForeignKey(i => i.BarberShopId);
-    }
 }

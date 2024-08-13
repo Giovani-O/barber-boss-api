@@ -12,9 +12,9 @@ internal class IncomeRepository(BarberBossDbContext dbContext)
     /// <summary>
     /// Get all incomes for a barber shop from the database.
     /// </summary>
-    /// <param name="barberShopId">Guid</param>
+    /// <param name="barberShopId">long</param>
     /// <returns>List of Income</returns>
-    public async Task<List<Income>> GetAllByBarberShopId(Guid barberShopId)
+    public async Task<List<Income>> GetAllByBarberShopId(long barberShopId)
     {
         return await _dbContext.Incomes.AsNoTracking().Where(i => i.BarberShopId == barberShopId).ToListAsync();
     }
@@ -22,9 +22,9 @@ internal class IncomeRepository(BarberBossDbContext dbContext)
     /// <summary>
     /// Get income by id from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>Income?</returns>
-    async Task<Income?> IIncomeReadOnlyRepository.GetById(Guid id)
+    async Task<Income?> IIncomeReadOnlyRepository.GetById(long id)
     {
         return await _dbContext.Incomes.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
     }
@@ -41,9 +41,9 @@ internal class IncomeRepository(BarberBossDbContext dbContext)
     /// <summary>
     /// Get income by id for update from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>Income?</returns>
-    async Task<Income?> IIncomeUpdateOnlyRepository.GetById(Guid id)
+    async Task<Income?> IIncomeUpdateOnlyRepository.GetById(long id)
     {
         return await _dbContext.Incomes.FirstOrDefaultAsync(i => i.Id == id);
     }
@@ -60,9 +60,9 @@ internal class IncomeRepository(BarberBossDbContext dbContext)
     /// <summary>
     /// Delete an income by id from the database.
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>bool</returns>
-    public async Task<bool> Delete(Guid id)
+    public async Task<bool> Delete(long id)
     {
         var income = await _dbContext.Incomes.FindAsync(id);
         if (income is null)

@@ -7,9 +7,9 @@ public interface IUserUpdateOnlyRepository
     /// <summary>
     /// Get user by id for update
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>User</returns>
-    Task<User?> GetById(Guid id);
+    Task<User?> GetById(long id);
     
     /// <summary>
     /// Updates a user

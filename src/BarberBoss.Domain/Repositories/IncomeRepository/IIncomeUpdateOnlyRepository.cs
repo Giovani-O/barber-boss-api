@@ -7,9 +7,9 @@ public interface IIncomeUpdateOnlyRepository
     /// <summary>
     /// Get income by id for update
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>Income</returns>
-    Task<Income?> GetById(Guid id);
+    Task<Income?> GetById(long id);
     
     /// <summary>
     /// Updates an income

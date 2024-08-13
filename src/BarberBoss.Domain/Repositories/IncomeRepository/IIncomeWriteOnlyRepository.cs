@@ -13,6 +13,6 @@ public interface IIncomeWriteOnlyRepository
     /// <summary>
     /// Deletes an income by id
     /// </summary>
-    /// <param name="id">Guid</param>
-    Task<bool> Delete(Guid id);
+    /// <param name="id">long</param>
+    Task<bool> Delete(long id);
 }

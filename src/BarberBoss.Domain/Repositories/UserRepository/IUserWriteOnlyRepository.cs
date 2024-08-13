@@ -13,7 +13,7 @@ public interface IUserWriteOnlyRepository
     /// <summary>
     /// Delete a user by id
     /// </summary>
-    /// <param name="id">Guid</param>
+    /// <param name="id">long</param>
     /// <returns>bool</returns>
-    Task<bool> Delete(Guid id);
+    Task<bool> Delete(long id);
 }
