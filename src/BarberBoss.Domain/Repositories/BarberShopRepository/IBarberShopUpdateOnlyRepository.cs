@@ -15,5 +15,5 @@ public interface IBarberShopUpdateOnlyRepository
     /// Updates a barber shop
     /// </summary>
     /// <param name="barberShop">BarberShop</param>
-    Task Update(BarberShop barberShop);
+    void Update(BarberShop barberShop);
 }

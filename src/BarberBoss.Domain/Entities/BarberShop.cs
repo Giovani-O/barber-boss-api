@@ -11,5 +11,5 @@ public class BarberShop
     public Guid UserId { get; set; }
     public User User { get; set; } = default!;
     
-    public ICollection<Income> Services { get; set; } = new List<Income>();
+    public ICollection<Income> Incomes { get; set; } = new List<Income>();
 }

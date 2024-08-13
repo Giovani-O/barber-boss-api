@@ -9,11 +9,11 @@ public interface IIncomeUpdateOnlyRepository
     /// </summary>
     /// <param name="id">Guid</param>
     /// <returns>Income</returns>
-    Task<Income> GetById(Guid id);
+    Task<Income?> GetById(Guid id);
     
     /// <summary>
     /// Updates an income
     /// </summary>
     /// <param name="income">Income</param>
-    Task Update(Income income);
+    void Update(Income income);
 }

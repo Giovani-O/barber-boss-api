@@ -7,9 +7,9 @@ public interface IIncomeReadOnlyRepository
     /// <summary>
     /// Get all incomes for a user
     /// </summary>
-    /// <param name="userId">Guid</param>
+    /// <param name="barberShopId">Guid</param>
     /// <returns>List of Income</returns>
-    Task<List<Income>> GetAllByUserId(Guid userId);
+    Task<List<Income>> GetAllByBarberShopId(Guid barberShopId);
     
     /// <summary>
     /// Get income by id

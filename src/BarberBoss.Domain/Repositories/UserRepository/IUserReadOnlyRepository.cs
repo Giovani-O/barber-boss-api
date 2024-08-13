@@ -15,5 +15,5 @@ public interface IUserReadOnlyRepository
     /// </summary>
     /// <param name="id">Guid</param>
     /// <returns>User</returns>
-    Task<User> GetById(Guid id);
+    Task<User?> GetById(Guid id);
 }

@@ -15,5 +15,5 @@ public interface IUserUpdateOnlyRepository
     /// Updates a user
     /// </summary>
     /// <param name="user">User</param>
-    Task Update(User  user);
+    void Update(User  user);
 }

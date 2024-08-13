@@ -14,4 +14,8 @@
       <ProjectReference Include="..\BarberBoss.Domain\BarberBoss.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    </ItemGroup>
+
 </Project>

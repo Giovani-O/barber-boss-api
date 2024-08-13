@@ -14,5 +14,6 @@ public interface IBarberShopWriteOnlyRepository
     /// Delete a barber shop by id
     /// </summary>
     /// <param name="id">Guid</param>
-    Task Delete(Guid id);
+    /// <returns>bool</returns>
+    Task<bool> Delete(Guid id);
 }
