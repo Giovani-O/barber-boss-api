@@ -4,7 +4,7 @@ using BarberBoss.Domain.Repositories.UserRepository;
 using FluentAssertions;
 using Moq;
 
-namespace BarberBoss.Infrastructure.Tests.Repositories;
+namespace BarberBoss.Infrastructure.Tests.UserRepository;
 
 public class UserRepositoryTests
 {
@@ -34,10 +34,10 @@ public class UserRepositoryTests
     }
     
     /// <summary>
-    /// Tests the GetAllUsers method to ensure it returns all users.
+    /// Tests the GetAll method to ensure it returns all users.
     /// </summary>
     [Fact]
-    public async Task GetAllUsers_ShouldReturnAllUsers()
+    public async Task GetAll_ShouldReturnAllUsers()
     {
         var getAllUsers = await _userReadOnlyRepositoryMock.Object.GetAll();
 
@@ -47,10 +47,10 @@ public class UserRepositoryTests
     }
 
     /// <summary>
-    /// Tests the GetUserById method to ensure it returns a user by id.
+    /// Tests the GetById method to ensure it returns a user by id.
     /// </summary>
     [Fact]
-    public async Task GetUserById_ShouldReturnUserById()
+    public async Task GetById_ShouldReturnUserById()
     {
         var getUserById = await _userReadOnlyRepositoryMock.Object.GetById(1);
 
@@ -61,10 +61,10 @@ public class UserRepositoryTests
     }
 
     /// <summary>
-    /// Tests the DeleteUser method to ensure it deletes a user by id.
+    /// Tests the Add method to ensure it adds a user to the database.
     /// </summary>
     [Fact]
-    public async Task AddUser_ShouldAddUserToDatabase()
+    public async Task Add_ShouldAddUserToDatabase()
     {
         var user = new User { Id = 2, Name = "Jane Doe", Email = "jane.doe@mail.com" };
         
@@ -74,10 +74,10 @@ public class UserRepositoryTests
     }
 
     /// <summary>
-    /// Tests the DeleteUser method to ensure it deletes a user by id.
+    /// Tests the Delete method to ensure it deletes a user by id.
     /// </summary>
     [Fact]
-    public async Task DeleteUser_ShouldDeleteUserFromDatabase()
+    public async Task Delete_ShouldDeleteUserFromDatabase()
     {
         var deleteResult = await _userWriteOnlyRepositoryMock.Object.Delete(1);
 
@@ -85,10 +85,10 @@ public class UserRepositoryTests
     }
 
     /// <summary>
-    /// Tests the UpdateUser method to ensure it updates a user in the database.
+    /// Tests the Update method to ensure it updates a user in the database.
     /// </summary>
     [Fact]
-    public async void UpdateUser_ShouldUpdateUserInDatabase()
+    public void Update_ShouldUpdateUserInDatabase()
     {
         var user = new User { Id = 1, Name = "John Doe", Email = "john.doe@mail.com" };
         user.Name = "Jane Doe";
@@ -108,6 +108,7 @@ public class UserRepositoryTests
 
         user.Should().NotBeNull();
         user!.Id.Should().Be(1);
+        user.Should().BeOfType<User>();
         user.Name.Should().Be("John Doe");
         user.Email.Should().Be("john.doe@mail.com");
     }

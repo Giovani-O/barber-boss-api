@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Exception", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Infrastructure.Tests", "tests\BarberBoss.Infrastructure.Tests\BarberBoss.Infrastructure.Tests.csproj", "{114B9B2F-6AEC-4C61-98C6-C82E31F2C832}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Tests.Utilities", "tests\BarberBoss.Tests.Utilities\BarberBoss.Tests.Utilities.csproj", "{4451C86B-C32F-4389-8F89-4DDA8BAC2E8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{114B9B2F-6AEC-4C61-98C6-C82E31F2C832}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{114B9B2F-6AEC-4C61-98C6-C82E31F2C832}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{114B9B2F-6AEC-4C61-98C6-C82E31F2C832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4451C86B-C32F-4389-8F89-4DDA8BAC2E8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4451C86B-C32F-4389-8F89-4DDA8BAC2E8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4451C86B-C32F-4389-8F89-4DDA8BAC2E8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4451C86B-C32F-4389-8F89-4DDA8BAC2E8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4106E91E-17A7-4569-BBEC-59D123890964} = {A923E3B6-73C0-4A85-BE97-400AA1EBD3D5}
@@ -73,5 +79,6 @@ Global
 		{21B29304-B736-42E2-B7BD-1E9939C359F2} = {8A32AF9D-A3D9-4084-91B2-3AF38059E97B}
 		{8929AAD3-81C0-48F1-9D32-32D145C568BD} = {A923E3B6-73C0-4A85-BE97-400AA1EBD3D5}
 		{114B9B2F-6AEC-4C61-98C6-C82E31F2C832} = {8A32AF9D-A3D9-4084-91B2-3AF38059E97B}
+		{4451C86B-C32F-4389-8F89-4DDA8BAC2E8C} = {8A32AF9D-A3D9-4084-91B2-3AF38059E97B}
 	EndGlobalSection
 EndGlobal
