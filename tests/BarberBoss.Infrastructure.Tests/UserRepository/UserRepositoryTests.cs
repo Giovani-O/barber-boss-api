@@ -102,7 +102,7 @@ public class UserRepositoryTests
     /// Tests the GetById method to ensure it returns a user by id before updating it.
     /// </summary>
     [Fact]
-    public async Task UpdateUser_GetById_ShouldReturnUserById()
+    public async Task Update_GetById_ShouldReturnUserById()
     {   
         var user = await _userUpdateOnlyRepositoryMock.Object.GetById(1);
 

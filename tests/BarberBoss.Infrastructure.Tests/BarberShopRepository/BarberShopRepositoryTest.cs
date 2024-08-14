@@ -104,7 +104,7 @@ public class BarberShopRepositoryTest
     /// Tests the GetById method to ensure it returns a barber shop by id before updating it.
     /// </summary>
     [Fact]
-    public async Task UpdateBarberShop_GetById_ShouldReturnBarberShopById()
+    public async Task Update_GetById_ShouldReturnBarberShopById()
     {
         var barberShop = await _barberShopUpdateOnlyRepositoryMock.Object.GetById(1);
 
