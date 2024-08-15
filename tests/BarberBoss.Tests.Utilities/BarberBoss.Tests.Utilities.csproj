@@ -14,4 +14,8 @@
       <PackageReference Include="Bogus" Version="35.6.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\BarberBoss.Communication\BarberBoss.Communication.csproj" />
+    </ItemGroup>
+
 </Project>

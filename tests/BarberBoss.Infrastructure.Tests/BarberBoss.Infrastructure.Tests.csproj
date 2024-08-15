@@ -36,6 +36,7 @@
       <ProjectReference Include="..\..\src\BarberBoss.Domain\BarberBoss.Domain.csproj" />
       <ProjectReference Include="..\..\src\BarberBoss.Exception\BarberBoss.Exception.csproj" />
       <ProjectReference Include="..\..\src\BarberBoss.Infrastructure\BarberBoss.Infrastructure.csproj" />
+      <ProjectReference Include="..\BarberBoss.Tests.Utilities\BarberBoss.Tests.Utilities.csproj" />
     </ItemGroup>
     
     <ItemGroup>
