@@ -5,6 +5,10 @@ namespace BarberBoss.Tests.Utilities.Requests;
 
 public class BarberShopBuilder
 {
+    /// <summary>
+    /// Builds a BarberShop object with random data.
+    /// </summary>
+    /// <returns></returns>
     public static BarberShop Build()
     {
         return new Faker<BarberShop>()

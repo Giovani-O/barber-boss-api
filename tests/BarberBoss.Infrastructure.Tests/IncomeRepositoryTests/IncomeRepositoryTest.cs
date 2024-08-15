@@ -100,7 +100,7 @@ public class IncomeRepositoryTest
     [Fact]
     public void Update_ShouldUpdateIncomeInDatabase()
     {
-        Action updateResult = () => _incomeRepository.Update(_incomeB);
+        var updateResult = () => _incomeRepository.Update(_incomeB);
         
         updateResult.Should().NotThrow();
     }

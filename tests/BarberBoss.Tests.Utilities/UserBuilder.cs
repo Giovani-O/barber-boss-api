@@ -5,6 +5,10 @@ namespace BarberBoss.Tests.Utilities.Requests;
 
 public class UserBuilder
 {
+    /// <summary>
+    /// Builds a User object with random data.
+    /// </summary>
+    /// <returns></returns>
     public static User Build()
     {   
         return new Faker<User>()
