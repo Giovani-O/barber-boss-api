@@ -9,7 +9,7 @@ public interface IUserUpdateOnlyRepository
     /// </summary>
     /// <param name="id">long</param>
     /// <returns>User</returns>
-    Task<User?> GetById(long id);
+    Task<User?> GetByIdForUpdate(long id);
     
     /// <summary>
     /// Updates a user

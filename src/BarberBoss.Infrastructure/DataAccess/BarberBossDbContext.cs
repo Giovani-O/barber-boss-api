@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
  */
 
 namespace BarberBoss.Infrastructure.DataAccess;
-internal class BarberBossDbContext(DbContextOptions<BarberBossDbContext> options) : DbContext(options)
+public class BarberBossDbContext(DbContextOptions<BarberBossDbContext> options) : DbContext(options)
 {
     public DbSet<User> Users { get; set; }
     public DbSet<BarberShop> BarberShops { get; set; }

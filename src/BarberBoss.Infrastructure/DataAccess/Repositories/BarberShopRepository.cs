@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BarberBoss.Infrastructure.DataAccess.Repositories;
 
-internal class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShopReadOnlyRepository,
+public class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShopReadOnlyRepository,
     IBarberShopWriteOnlyRepository, IBarberShopUpdateOnlyRepository
 {
     private readonly BarberBossDbContext _dbContext = dbContext;
@@ -24,7 +24,7 @@ internal class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShop
     /// </summary>
     /// <param name="id">long</param>
     /// <returns>BarberShop?</returns>
-    async Task<BarberShop?> IBarberShopReadOnlyRepository.GetById(long id)
+    public async Task<BarberShop?> GetById(long id)
     {
         return await _dbContext.BarberShops.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
     }
@@ -43,7 +43,7 @@ internal class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShop
     /// </summary>
     /// <param name="id">long</param>
     /// <returns>BarberShop?</returns>
-    async Task<BarberShop?> IBarberShopUpdateOnlyRepository.GetById(long id)
+    public async Task<BarberShop?> GetByIdForUpdate(long id)
     {
         return await _dbContext.BarberShops.FirstOrDefaultAsync(b => b.Id == id);
     }

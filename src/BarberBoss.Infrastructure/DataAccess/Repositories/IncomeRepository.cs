@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BarberBoss.Infrastructure.DataAccess.Repositories;
 
-internal class IncomeRepository(BarberBossDbContext dbContext)
+public class IncomeRepository(BarberBossDbContext dbContext)
     : IIncomeReadOnlyRepository, IIncomeWriteOnlyRepository, IIncomeUpdateOnlyRepository
 {
     private readonly BarberBossDbContext _dbContext = dbContext;
@@ -24,7 +24,7 @@ internal class IncomeRepository(BarberBossDbContext dbContext)
     /// </summary>
     /// <param name="id">long</param>
     /// <returns>Income?</returns>
-    async Task<Income?> IIncomeReadOnlyRepository.GetById(long id)
+    public async Task<Income?> GetById(long id)
     {
         return await _dbContext.Incomes.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
     }
@@ -43,7 +43,7 @@ internal class IncomeRepository(BarberBossDbContext dbContext)
     /// </summary>
     /// <param name="id">long</param>
     /// <returns>Income?</returns>
-    async Task<Income?> IIncomeUpdateOnlyRepository.GetById(long id)
+    public async Task<Income?> GetByIdForUpdate(long id)
     {
         return await _dbContext.Incomes.FirstOrDefaultAsync(i => i.Id == id);
     }
