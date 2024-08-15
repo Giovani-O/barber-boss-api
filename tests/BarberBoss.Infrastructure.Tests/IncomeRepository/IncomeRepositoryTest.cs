@@ -25,7 +25,6 @@ public class IncomeRepositoryTest
             new Income
             {
                 Id = 1,
-                ClientName = "Cliente 1",
                 Title = "Serviço 1",
                 ServiceDate = DateTime.Now.AddDays(-1),
                 PaymentType = "0",
@@ -35,7 +34,6 @@ public class IncomeRepositoryTest
             new Income
             {
                 Id = 2,
-                ClientName = "Cliente 2",
                 Title = "Serviço 2",
                 ServiceDate = DateTime.Now.AddDays(-2),
                 PaymentType = "1",
@@ -45,7 +43,6 @@ public class IncomeRepositoryTest
             new Income
             {
                 Id = 3,
-                ClientName = "Cliente 3",
                 Title = "Serviço 3",
                 ServiceDate = DateTime.Now.AddDays(-2),
                 PaymentType = "1",
@@ -99,7 +96,6 @@ public class IncomeRepositoryTest
     {
         var newIncome = new Income
         {
-            ClientName = "Cliente 4",
             Title = "Serviço 4",
             ServiceDate = DateTime.Now.AddDays(-1),
             PaymentType = "0",
@@ -132,7 +128,6 @@ public class IncomeRepositoryTest
         var incomeToUpdate = new Income
         {
             Id = 1,
-            ClientName = "Cliente 1",
             Title = "Serviço 1",
             ServiceDate = DateTime.Now.AddDays(-1),
             PaymentType = "0",

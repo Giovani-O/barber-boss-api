@@ -1,6 +1,6 @@
 namespace BarberBoss.Domain.Enums;
 
-public enum PaymentMethods
+public enum PaymentType
 {
     Debit = 0,
     Credit = 1
