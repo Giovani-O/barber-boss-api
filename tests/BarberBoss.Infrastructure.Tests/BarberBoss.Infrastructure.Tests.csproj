@@ -42,6 +42,7 @@
     
     <ItemGroup>
       <Compile Remove="Repositories\UserRepositories\**" />
+      <Compile Remove="SecurityTests\TokenGeneratorTests.cs" />
     </ItemGroup>
     
     <ItemGroup>

@@ -8,6 +8,8 @@ public class User
     [Key]
     public long Id { get; set; }
     [Required]
+    public Guid UserIdentifier { get; set; }
+    [Required]
     [MaxLength(100)]
     public string Name { get; set; } = string.Empty;
     [Required]
