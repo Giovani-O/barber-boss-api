@@ -21,4 +21,31 @@
     <data name="UNKNOWN_ERROR" xml:space="preserve">
         <value>Unknown error</value>
     </data>
+    <data name="NAME_EMPTY" xml:space="preserve">
+        <value>The name cannot be empty</value>
+    </data>
+    <data name="NAME_TOO_LONG" xml:space="preserve">
+        <value>The name is too long</value>
+    </data>
+    <data name="EMAIL_EMPTY" xml:space="preserve">
+        <value>The email cannot be empty</value>
+    </data>
+    <data name="EMAIL_INVALID" xml:space="preserve">
+        <value>This email is invalid</value>
+    </data>
+    <data name="EMAIL_TOO_LONG" xml:space="preserve">
+        <value>The email is too long</value>
+    </data>
+    <data name="PASSWORD_INVALID" xml:space="preserve">
+        <value>The password is invalid</value>
+    </data>
+    <data name="PASSWORD_TOO_LONG" xml:space="preserve">
+        <value>The password is too long</value>
+    </data>
+    <data name="PASSWORD_TOO_SHORT" xml:space="preserve">
+        <value>The password is too short</value>
+    </data>
+    <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
+        <value>This email is already in use</value>
+    </data>
 </root>

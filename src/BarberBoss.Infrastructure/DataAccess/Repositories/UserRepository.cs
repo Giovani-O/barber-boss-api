@@ -29,6 +29,16 @@ public class UserRepository(BarberBossDbContext dbContext)
     }
 
     /// <summary>
+    /// Check if a user exists
+    /// </summary>
+    /// <param name="email">string</param>
+    /// <returns>User</returns>
+    public async Task<bool> CheckIfUserExists(string email)
+    {
+        return await _dbContext.Users.AnyAsync(u => u.Email == email);
+    }
+
+    /// <summary>
     /// Updates a user in the database.
     /// </summary>
     /// <param name="user">User</param>

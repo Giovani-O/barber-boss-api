@@ -1,3 +1,4 @@
+using BarberBoss.Application.UseCases.Users.Register;
 using BarberBoss.Communication.DTOs.Request.UserRequests;
 using BarberBoss.Communication.DTOs.Response.UserResponses;
 using Microsoft.AspNetCore.Mvc;
@@ -35,15 +36,21 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Add a new user.
+    /// Add a new user
     /// </summary>
+    /// <param name="useCase">IRegisterUseCase</param>
     /// <param name="request">RequestRegisterUserJson</param>
+    /// <exception cref="NotImplementedException"></exception>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult> Create([FromBody] RequestRegisterUserJson request)
+    public async Task<ActionResult> Create(
+        [FromServices] IRegisterUseCase useCase, 
+        [FromBody] RequestRegisterUserJson request)
     {
-        throw new NotImplementedException();
+        var response = await useCase.Execute(request);
+
+        return Created(string.Empty, response);
     }
 
     /// <summary>

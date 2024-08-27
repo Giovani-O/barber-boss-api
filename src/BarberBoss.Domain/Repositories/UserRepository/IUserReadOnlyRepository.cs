@@ -16,4 +16,11 @@ public interface IUserReadOnlyRepository
     /// <param name="id">long</param>
     /// <returns>User</returns>
     Task<User?> GetById(long id);
+    
+    /// <summary>
+    /// Checks if a user exists
+    /// </summary>
+    /// <param name="email">string</param>
+    /// <returns>boo</returns>
+    Task<bool> CheckIfUserExists(string email);
 }
