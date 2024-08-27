@@ -16,6 +16,7 @@ public class UserBuilder
             .RuleFor(u => u.UserIdentifier, faker => faker.Random.Guid())
             .RuleFor(u => u.Name, faker => faker.Name.FullName())
             .RuleFor(u => u.Email, faker => faker.Internet.Email())
-            .RuleFor(u => u.Password, faker => faker.Internet.Password(10));
+            .RuleFor(u => u.Password, faker => 
+                faker.Internet.Password(10, false, @"^[a-zA-Z0-9\!\@\#\$\%\&\*\(\)\.\,\<\>\;\:\/\?\|]+$"));
     }
 }
