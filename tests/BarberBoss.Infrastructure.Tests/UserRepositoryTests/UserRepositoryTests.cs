@@ -1,7 +1,7 @@
 using BarberBoss.Domain.Entities;
 using BarberBoss.Infrastructure.DataAccess;
 using BarberBoss.Infrastructure.DataAccess.Repositories;
-using BarberBoss.Tests.Utilities.Requests;
+using BarberBoss.Tests.Utilities;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 

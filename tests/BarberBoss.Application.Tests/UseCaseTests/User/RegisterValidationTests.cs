@@ -3,7 +3,7 @@ using BarberBoss.Application.Mappings;
 using BarberBoss.Application.UseCases.Users.Register;
 using BarberBoss.Communication.DTOs.Request.UserRequests;
 using BarberBoss.Exception;
-using BarberBoss.Tests.Utilities.Requests;
+using BarberBoss.Tests.Utilities;
 using BarberBoss.Tests.Utilities.Requests.Tools;
 using FluentAssertions;
 

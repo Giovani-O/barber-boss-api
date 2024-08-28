@@ -3,16 +3,15 @@ using Bogus;
 
 namespace BarberBoss.Tests.Utilities;
 
-public class UserBuilder
+public class NewUserBuilder
 {
     /// <summary>
-    /// Builds a User object with random data.
+    /// Builds a User object with random data and without id.
     /// </summary>
     /// <returns></returns>
     public static User Build()
     {   
         return new Faker<User>()
-            .RuleFor(u => u.Id, faker => faker.Random.Long(10000, 99999))
             .RuleFor(u => u.UserIdentifier, faker => faker.Random.Guid())
             .RuleFor(u => u.Name, faker => faker.Name.FullName())
             .RuleFor(u => u.Email, faker => faker.Internet.Email())
