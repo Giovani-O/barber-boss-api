@@ -29,7 +29,7 @@ public class RegisterUserValidator : AbstractValidator<RequestRegisterUserJson>
             .WithMessage(ResourceErrorMessages.EMAIL_TOO_LONG)
             .WithName(nameof(User.Email));
         RuleFor(user => user.Password)
-            .SetValidator(new PasswordValidator<RequestRegisterUserJson>())
-            .WithMessage(ResourceErrorMessages.PASSWORD_TOO_SHORT);
+            .SetValidator(new PasswordValidator<RequestRegisterUserJson>());
+        // .WithMessage(ResourceErrorMessages.PASSWORD_INVALID);
     }
 }

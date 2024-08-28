@@ -20,43 +20,43 @@ public partial class PasswordValidator<T> : PropertyValidator<T, string>
     {
         if (string.IsNullOrWhiteSpace(password))
         {
-            context.MessageFormatter.AppendArgument(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
+            context.AddFailure(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
             return false;
         }
 
         if (password.Length < 8)
         {
-            context.MessageFormatter.AppendArgument(ErrorMessageKey, ResourceErrorMessages.PASSWORD_TOO_SHORT);
+            context.AddFailure(ErrorMessageKey, ResourceErrorMessages.PASSWORD_TOO_SHORT);
             return false;
         }
 
         if (password.Length > 100)
         {
-            context.MessageFormatter.AppendArgument(ErrorMessageKey, ResourceErrorMessages.PASSWORD_TOO_LONG);
+            context.AddFailure(ErrorMessageKey, ResourceErrorMessages.PASSWORD_TOO_LONG);
             return false;
         }
         
         if (UpperCaseRegex().IsMatch(password) == false)
         {
-            context.MessageFormatter.AppendArgument(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
+            context.AddFailure(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
             return false;
         }
 
         if (LowerCaseRegex().IsMatch(password) == false)
         {
-            context.MessageFormatter.AppendArgument(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
+            context.AddFailure(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
             return false;
         }
 
         if (NumberRegex().IsMatch(password) == false)
         {
-            context.MessageFormatter.AppendArgument(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
+            context.AddFailure(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
             return false;
         }
 
         if (SpecialCharacterRegex().IsMatch(password) == false)
         {
-            context.MessageFormatter.AppendArgument(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
+            context.AddFailure(ErrorMessageKey, ResourceErrorMessages.PASSWORD_INVALID);
             return false;
         }
 
