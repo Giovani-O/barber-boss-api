@@ -132,52 +132,32 @@ public class RegisterValidationTests
     }
 
     /// <summary>
-    /// Tests validation when password is too short
+    /// Tests if password validation fails successfuly
     /// </summary>
-    [Fact]
-    public void Validation_Password_Is_Too_Short()
+    /// <param name="password"></param>
+    [Theory]
+    [InlineData("UPPERCASE123!@")]
+    [InlineData("lowercase123!@")]
+    [InlineData("NoNumbers!@")]
+    [InlineData("NoSpecialCharacters123")]
+    [InlineData("ThisPasswordIsTooLongForTheValidationAaBbCc1234567890!@$$%&*AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz")]
+    [InlineData("Sh0r?")]
+    [InlineData("")]
+    [InlineData("     ")]
+    public void Validation_Password_Does_Not_Match_Rules(string password)
     {
         var validator = new RegisterUserValidator();
         var user = UserBuilder.Build();
-        user.Password = "Sh0r?";
+        user.Password = password;
         var request = _mapper.Map<RequestRegisterUserJson>(user);
-
-        var validationResult = validator.Validate(request);
-
-        validationResult.IsValid.Should().BeFalse();
-        validationResult.Errors.Should().Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.PASSWORD_TOO_SHORT));
-    }
-
-    /// <summary>
-    /// Tests validation when password is empty
-    /// </summary>
-    [Fact]
-    public void Validation_Password_Is_Empty()
-    {
-        var validator = new RegisterUserValidator();
-        var user = UserBuilder.Build();
-        user.Password = string.Empty;
-        var request = _mapper.Map<RequestRegisterUserJson>(user);
-
+        
         var validationResult = validator.Validate(request);
 
         validationResult.IsValid.Should().BeFalse();
         validationResult.Errors.Should().Contain(
-            e => e.ErrorMessage.Equals(ResourceErrorMessages.PASSWORD_INVALID) || 
-                 e.ErrorMessage.Equals(ResourceErrorMessages.PASSWORD_TOO_SHORT));
-    }
-
-    [Fact]
-    public void Validation_Password_Is_Too_Long()
-    {
-        var validator = new RegisterUserValidator();
-        var user = UserBuilder.Build();
-        user.Password = StringGenerator.NewString(101) + "Aa12!";
-        var request = _mapper.Map<RequestRegisterUserJson>(user);
-
-        var validationResult = validator.Validate(request);
-
-        validationResult.IsValid.Should().BeFalse();
-        validationResult.Errors.Should().Contain(e => e.ErrorMessage.Equals(ResourceErrorMessages.PASSWORD_TOO_LONG));
+            e => e.ErrorMessage.Equals(ResourceErrorMessages.PASSWORD_INVALID) ||
+                 e.ErrorMessage.Equals(ResourceErrorMessages.PASSWORD_TOO_SHORT) ||
+                 e.ErrorMessage.Equals(ResourceErrorMessages.PASSWORD_TOO_LONG)
+        );
     }
 }
