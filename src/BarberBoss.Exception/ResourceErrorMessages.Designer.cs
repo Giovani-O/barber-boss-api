@@ -104,5 +104,17 @@ namespace BarberBoss.Exception {
                 return ResourceManager.GetString("EMAIL_ALREADY_EXISTS", resourceCulture);
             }
         }
+        
+        public static string ID_IS_INVALID {
+            get {
+                return ResourceManager.GetString("ID_IS_INVALID", resourceCulture);
+            }
+        }
+        
+        public static string USER_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("USER_NOT_FOUND", resourceCulture);
+            }
+        }
     }
 }

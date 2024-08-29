@@ -1,4 +1,5 @@
 using BarberBoss.Application.UseCases.Users.GetAll;
+using BarberBoss.Application.UseCases.Users.GetById;
 using BarberBoss.Application.UseCases.Users.Register;
 using BarberBoss.Communication.DTOs.Request.UserRequests;
 using BarberBoss.Communication.DTOs.Response.UserResponses;
@@ -33,9 +34,10 @@ public class UserController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ResponseUserJson>> GetById([FromQuery] long id)
+    public async Task<ActionResult<ResponseUserJson>> GetById([FromServices] IGetUserByIdUseCase useCase, [FromQuery] long id)
     {
-        throw new NotImplementedException();
+        var response = await useCase.Execute(id);
+        return Ok(response);
     }
 
     /// <summary>

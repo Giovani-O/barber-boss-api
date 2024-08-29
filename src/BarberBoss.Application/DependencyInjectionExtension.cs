@@ -1,5 +1,6 @@
 using BarberBoss.Application.Mappings;
 using BarberBoss.Application.UseCases.Users.GetAll;
+using BarberBoss.Application.UseCases.Users.GetById;
 using BarberBoss.Application.UseCases.Users.Register;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,5 +25,6 @@ public static class DependencyInjectionExtension
     {
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IGetAllUsersUseCase, GetAllUsersUseCase>();
+        services.AddScoped<IGetUserByIdUseCase, GetUserByIdUseCase>();
     }
 }

@@ -41,4 +41,10 @@
     <data name="EMAIL_ALREADY_EXISTS" xml:space="preserve">
         <value>Este email já está em uso</value>
     </data>
+    <data name="ID_IS_INVALID" xml:space="preserve">
+        <value>O Id é inválido</value>
+    </data>
+    <data name="USER_NOT_FOUND" xml:space="preserve">
+        <value>Usuário não encontrado</value>
+    </data>
 </root>
