@@ -1,4 +1,5 @@
 using BarberBoss.Application.Mappings;
+using BarberBoss.Application.UseCases.Users.Delete;
 using BarberBoss.Application.UseCases.Users.GetAll;
 using BarberBoss.Application.UseCases.Users.GetById;
 using BarberBoss.Application.UseCases.Users.Register;
@@ -26,5 +27,6 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IGetAllUsersUseCase, GetAllUsersUseCase>();
         services.AddScoped<IGetUserByIdUseCase, GetUserByIdUseCase>();
+        services.AddScoped<IDeleteUserUseCase, DeleteUserUseCase>();
     }
 }

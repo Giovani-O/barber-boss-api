@@ -1,3 +1,4 @@
+using BarberBoss.Application.UseCases.Users.Delete;
 using BarberBoss.Application.UseCases.Users.GetAll;
 using BarberBoss.Application.UseCases.Users.GetById;
 using BarberBoss.Application.UseCases.Users.Register;
@@ -14,6 +15,7 @@ public class UserController : ControllerBase
     /// <summary>
     /// Gets all users.
     /// </summary>
+    /// /// <param name="useCase"></param>
     /// <returns>IEnumerable of ResponseUserJson</returns>
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -28,8 +30,9 @@ public class UserController : ControllerBase
     /// <summary>
     /// Gets a user by id.
     /// </summary>
+    /// <param name="useCase"></param>
     /// <param name="id">long</param>
-    /// <returns>ResponseuserJson</returns>
+    /// <returns>ResponseUserJson</returns>
     [HttpGet("GetUser")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -43,7 +46,7 @@ public class UserController : ControllerBase
     /// <summary>
     /// Add a new user
     /// </summary>
-    /// <param name="userUseCase">IRegisterUseCase</param>
+    /// <param name="useCase">IRegisterUseCase</param>
     /// <param name="request">RequestRegisterUserJson</param>
     /// <exception cref="NotImplementedException"></exception>
     [HttpPost]
@@ -75,14 +78,17 @@ public class UserController : ControllerBase
     /// <summary>
     /// Delete a user by id.
     /// </summary>
+    /// <param name="useCase"></param>
     /// <param name="id">long</param>
     [HttpDelete]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> Delete([FromQuery] long id)
+    public async Task<ActionResult> Delete([FromServices] IDeleteUserUseCase useCase, [FromQuery] long id)
     {
-        throw new NotImplementedException();
+        await useCase.Execute(id);
+        
+        return NoContent();
     }
     
 }
