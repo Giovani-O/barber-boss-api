@@ -11,7 +11,7 @@ using FluentValidation.Results;
 
 namespace BarberBoss.Application.UseCases.Users.Register;
 
-public class RegisterUseCase : IRegisterUseCase
+public class RegisterUserUseCase : IRegisterUserUseCase
 {
     private readonly IUserWriteOnlyRepository _writeOnlyRepository;
     private readonly IUserReadOnlyRepository _readOnlyRepository;
@@ -19,7 +19,7 @@ public class RegisterUseCase : IRegisterUseCase
     private readonly IMapper _mapper;
     private readonly IPasswordEncrypter _passwordEncrypter;
 
-    public RegisterUseCase(
+    public RegisterUserUseCase(
         IUserWriteOnlyRepository writeOnlyRepository,
         IUserReadOnlyRepository readOnlyRepository,
         IUnitOfWork unitOfWork, 

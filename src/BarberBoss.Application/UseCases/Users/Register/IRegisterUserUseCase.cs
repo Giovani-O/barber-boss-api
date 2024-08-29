@@ -3,7 +3,7 @@ using BarberBoss.Communication.DTOs.Response.UserResponses;
 
 namespace BarberBoss.Application.UseCases.Users.Register;
 
-public interface IRegisterUseCase
+public interface IRegisterUserUseCase
 {
     Task<ResponseUserJson> Execute(RequestRegisterUserJson user);
 }

@@ -1,3 +1,4 @@
+using BarberBoss.Application.UseCases.Users.GetAll;
 using BarberBoss.Application.UseCases.Users.Register;
 using BarberBoss.Communication.DTOs.Request.UserRequests;
 using BarberBoss.Communication.DTOs.Response.UserResponses;
@@ -16,9 +17,11 @@ public class UserController : ControllerBase
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<ResponseUserJson>>> GetAll()
+    public async Task<ActionResult<IEnumerable<ResponseUserJson>>> GetAll([FromServices] IGetAllUsersUseCase useCase)
     {
-        throw new NotImplementedException();
+        var response = await useCase.Execute();
+        
+        return Ok(response);
     }
 
     /// <summary>
@@ -38,14 +41,14 @@ public class UserController : ControllerBase
     /// <summary>
     /// Add a new user
     /// </summary>
-    /// <param name="useCase">IRegisterUseCase</param>
+    /// <param name="userUseCase">IRegisterUseCase</param>
     /// <param name="request">RequestRegisterUserJson</param>
     /// <exception cref="NotImplementedException"></exception>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult> Create(
-        [FromServices] IRegisterUseCase useCase, 
+        [FromServices] IRegisterUserUseCase useCase, 
         [FromBody] RequestRegisterUserJson request)
     {
         var response = await useCase.Execute(request);

@@ -34,6 +34,7 @@
       <Compile Remove="GlobalUsings.cs" />
       <Compile Remove="UnitTest1.cs" />
       <Compile Remove="UseCaseTests\User\Register\**" />
+      <Compile Remove="UseCaseTests\UserTests\Register\**" />
     </ItemGroup>
     
     <ItemGroup>
@@ -48,10 +49,12 @@
     
     <ItemGroup>
       <EmbeddedResource Remove="UseCaseTests\User\Register\**" />
+      <EmbeddedResource Remove="UseCaseTests\UserTests\Register\**" />
     </ItemGroup>
     
     <ItemGroup>
       <None Remove="UseCaseTests\User\Register\**" />
+      <None Remove="UseCaseTests\UserTests\Register\**" />
     </ItemGroup>
 
 </Project>

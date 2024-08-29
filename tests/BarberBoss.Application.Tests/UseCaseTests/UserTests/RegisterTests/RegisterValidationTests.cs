@@ -7,7 +7,7 @@ using BarberBoss.Tests.Utilities;
 using BarberBoss.Tests.Utilities.Requests.Tools;
 using FluentAssertions;
 
-namespace BarberBoss.Application.Tests.UseCaseTests.User;
+namespace BarberBoss.Application.Tests.UseCaseTests.UserTests.RegisterTests;
 
 /// <summary>
 /// Tests the validation of the user registration request

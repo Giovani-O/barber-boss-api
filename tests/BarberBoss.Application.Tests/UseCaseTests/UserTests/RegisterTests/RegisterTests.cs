@@ -11,14 +11,14 @@ using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 
-namespace BarberBoss.Application.Tests.UseCaseTests.User;
+namespace BarberBoss.Application.Tests.UseCaseTests.UserTests.RegisterTests;
 
 public class RegisterTests
 {
     private const string TestPassword = "TestPassword123!@";
 
     private readonly Mapper _mapper;
-    private readonly RegisterUseCase _registerUseCase;
+    private readonly RegisterUserUseCase _registerUserUseCase;
 
     public RegisterTests()
     {
@@ -28,7 +28,7 @@ public class RegisterTests
         
         // Create in memory database
         var options = new DbContextOptionsBuilder<BarberBossDbContext>()
-            .UseInMemoryDatabase(databaseName: "TestDatabase")
+            .UseInMemoryDatabase(databaseName: "UserRegisterDatabase")
             .Options;
 
         // Creates new db context and adds data
@@ -52,7 +52,7 @@ public class RegisterTests
         });
 
         // Creates a new instance of the use case
-        _registerUseCase = new RegisterUseCase(
+        _registerUserUseCase = new RegisterUserUseCase(
             userRepository,
             userRepository,
             unitOfWork.Object,
@@ -70,7 +70,7 @@ public class RegisterTests
         newUser.Password = TestPassword;
         var request = _mapper.Map<RequestRegisterUserJson>(newUser);
 
-        var result = await _registerUseCase.Execute(request);
+        var result = await _registerUserUseCase.Execute(request);
 
         result.Should().NotBeNull();
         result.Name.Should().BeEquivalentTo(newUser.Name);
