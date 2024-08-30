@@ -1,3 +1,4 @@
+using BarberBoss.Domain.Entities;
 using BarberBoss.Domain.Repositories;
 using BarberBoss.Domain.Repositories.UserRepository;
 using BarberBoss.Exception;
@@ -35,7 +36,7 @@ public class DeleteUserUseCase : IDeleteUserUseCase
         {
             throw new NotFoundException(new Dictionary<string, List<string>>
             {
-                {nameof(id), [ResourceErrorMessages.USER_NOT_FOUND] }
+                {nameof(User.Id), [ResourceErrorMessages.USER_NOT_FOUND] }
             });
         }
 
@@ -45,7 +46,7 @@ public class DeleteUserUseCase : IDeleteUserUseCase
         {
             throw new ErrorOnExecution(new Dictionary<string, List<string>>
             {
-                {nameof(id), [ResourceErrorMessages.UNKNOWN_ERROR] }
+                {nameof(User.Id), [ResourceErrorMessages.UNKNOWN_ERROR] }
             });
         }
         

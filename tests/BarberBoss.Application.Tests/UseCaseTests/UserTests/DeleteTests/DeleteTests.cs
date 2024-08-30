@@ -73,22 +73,8 @@ public class DeleteTests
 
         var exception = await result.Should().ThrowAsync<NotFoundException>();
         var errors = exception.Which.GetErrors();
-
+        
         errors.Should().ContainKey(nameof(User.Id))
             .WhoseValue.Should().Contain(ResourceErrorMessages.USER_NOT_FOUND);
     }
-
-    // [Fact]
-    // public async Task Delete_Should_Throw_Error_On_Execution_Exception()
-    // {
-    //     
-    //     
-    //     Func<Task> result = () => _useCase.Execute(_userB.Id);
-    //
-    //     var exception = await result.Should().ThrowAsync<ErrorOnExecution>();
-    //     var errors = exception.Which.GetErrors();
-    //
-    //     errors.Should().ContainKey(nameof(User.Id))
-    //         .WhoseValue.Should().Contain(ResourceErrorMessages.UNKNOWN_ERROR);
-    // }
 }
