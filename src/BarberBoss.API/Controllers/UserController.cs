@@ -2,6 +2,7 @@ using BarberBoss.Application.UseCases.Users.Delete;
 using BarberBoss.Application.UseCases.Users.GetAll;
 using BarberBoss.Application.UseCases.Users.GetById;
 using BarberBoss.Application.UseCases.Users.Register;
+using BarberBoss.Application.UseCases.Users.Update;
 using BarberBoss.Communication.DTOs.Request.UserRequests;
 using BarberBoss.Communication.DTOs.Response.UserResponses;
 using Microsoft.AspNetCore.Mvc;
@@ -64,15 +65,21 @@ public class UserController : ControllerBase
     /// <summary>
     /// Updates an existing user.
     /// </summary>
+    /// <param name="useCase">IUpdateUserUseCase</param>
     /// <param name="id">long</param>
     /// <param name="request">RequestUpdateUserJson</param>
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpPut]
-    public async Task<ActionResult> Update([FromQuery] long id, [FromBody] RequestUpdateUserJson request)
+    public async Task<ActionResult> Update(
+        [FromServices] IUpdateUserUseCase useCase, 
+        [FromQuery] long id, 
+        [FromBody] RequestUpdateUserJson request)
     {
-        throw new NotImplementedException();
+        await useCase.Execute(id, request);
+        
+        return NoContent();
     }
 
     /// <summary>
