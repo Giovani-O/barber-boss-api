@@ -122,5 +122,11 @@ namespace BarberBoss.Exception {
                 return ResourceManager.GetString("BARBER_SHOP_WITH_THIS_NAME_ALREADY_EXISTS", resourceCulture);
             }
         }
+        
+        public static string ID_IS_EMPTY {
+            get {
+                return ResourceManager.GetString("ID_IS_EMPTY", resourceCulture);
+            }
+        }
     }
 }

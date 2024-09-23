@@ -23,7 +23,7 @@ public class RegisterBarberShopValidator : AbstractValidator<RequestRegisterBarb
         RuleFor(barberShop => barberShop.UserId)
             .Cascade(CascadeMode.Stop)
             .NotEmpty()
-            .WithMessage(ResourceErrorMessages.ID_IS_INVALID)
+            .WithMessage(ResourceErrorMessages.ID_IS_EMPTY)
             .GreaterThan(0)
             .WithMessage(ResourceErrorMessages.ID_IS_INVALID)
             .WithName(nameof(BarberShop.UserId));

@@ -57,4 +57,7 @@
     <data name="BARBER_SHOP_WITH_THIS_NAME_ALREADY_EXISTS" xml:space="preserve">
         <value>A barber shop with this name already exists</value>
     </data>
+    <data name="ID_IS_EMPTY" xml:space="preserve">
+        <value>The Id cannot be empty</value>
+    </data>
 </root>
