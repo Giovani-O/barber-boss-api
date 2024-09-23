@@ -1,6 +1,7 @@
 using BarberBoss.API.Filters;
 using BarberBoss.API.Middlewares;
 using BarberBoss.Application;
+using BarberBoss.Application.UseCases.BarberShops.Register;
 using BarberBoss.Infrastructure;
 using BarberBoss.Infrastructure.Migrations;
 

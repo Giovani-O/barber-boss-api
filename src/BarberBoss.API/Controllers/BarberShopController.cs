@@ -1,3 +1,4 @@
+using BarberBoss.Application.UseCases.BarberShops.Register;
 using BarberBoss.Communication.DTOs.Request.BarberShopRequests;
 using BarberBoss.Communication.DTOs.Response.BarberShopResponses;
 using Microsoft.AspNetCore.Mvc;
@@ -38,13 +39,18 @@ public class BarberShopController : ControllerBase
     /// <summary>
     /// Add a new barber shop.
     /// </summary>
+    /// <param name="useCase">RegisterBarberShopUseCase</param>
     /// <param name="request">RequestRegisterBarberShopJson</param>
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult> Create([FromBody] RequestRegisterBarberShopJson request)
+    public async Task<ActionResult> Create(
+        [FromServices] IRegisterBarberShopUseCase useCase, 
+        [FromBody] RequestRegisterBarberShopJson request)
     {
-        throw new NotImplementedException();
+        var response = await useCase.Execute(request);
+
+        return Created(string.Empty, response);
     }
 
     /// <summary>

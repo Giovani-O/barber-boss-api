@@ -29,6 +29,13 @@ public class BarberShopRepository(BarberBossDbContext dbContext) : IBarberShopRe
         return await _dbContext.BarberShops.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
     }
 
+    public async Task<bool> CheckIfBarberShopExists(string name)
+    {
+        var result = await _dbContext.BarberShops.AsNoTracking().FirstOrDefaultAsync(b => b.Name == name);
+
+        return result is not null;
+    }
+
     /// <summary>
     /// Updates a barber shop in the database.
     /// </summary>

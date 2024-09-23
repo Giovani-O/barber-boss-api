@@ -1,8 +1,12 @@
 using AutoMapper;
 using BarberBoss.Communication.DTOs.Request.BarberShopRequests;
 using BarberBoss.Communication.DTOs.Response.BarberShopResponses;
+using BarberBoss.Domain.Entities;
 using BarberBoss.Domain.Repositories;
 using BarberBoss.Domain.Repositories.BarberShopRepository;
+using BarberBoss.Exception;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace BarberBoss.Application.UseCases.BarberShops.Register;
 
@@ -31,19 +35,42 @@ public class RegisterBarberShopUseCase : IRegisterBarberShopUseCase
     /// <param name="request">RequestRegisterBarberShopJson</param>
     /// <returns>ResponseBarberShopJson</returns>
     /// <exception cref="NotImplementedException"></exception>
-    public Task<ResponseBarberShopJson> Execute(RequestRegisterBarberShopJson request)
+    public async Task<ResponseBarberShopJson> Execute(RequestRegisterBarberShopJson request)
     {
-        Validate(request);
-        
-        throw new NotImplementedException();
+        await Validate(request);
+
+        var barberShop = _mapper.Map<BarberShop>(request);
+
+        await _writeOnlyRepository.Add(barberShop);
+        await _unitOfWork.Commit();
+
+        return new ResponseBarberShopJson
+        {
+            Id = barberShop.Id,
+            Name = barberShop.Name,
+            UserId = barberShop.UserId
+        };
     }
 
     /// <summary>
     /// Validate a barber shop creation request
     /// </summary>
     /// <param name="request"></param>
-    public void Validate(RequestRegisterBarberShopJson request)
+    private async Task Validate(RequestRegisterBarberShopJson request)
     {
-        
+        var result = await new RegisterBarberShopValidator().ValidateAsync(request);
+
+        var shopNameExists = await _readOnlyRepository.CheckIfBarberShopExists(request.Name);
+
+        if (shopNameExists)
+            result.Errors.Add(new ValidationFailure(string.Empty,
+                ResourceErrorMessages.BARBER_SHOP_WITH_THIS_NAME_ALREADY_EXISTS));
+
+        if (!result.IsValid)
+        {
+            var errorDictionary = result.Errors
+                .GroupBy(e => e.PropertyName)
+                .ToDictionary(x => x.Key, x => x.Select(e => e.ErrorMessage).ToList());
+        }
     }
 }

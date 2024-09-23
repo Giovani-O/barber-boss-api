@@ -116,5 +116,11 @@ namespace BarberBoss.Exception {
                 return ResourceManager.GetString("USER_NOT_FOUND", resourceCulture);
             }
         }
+        
+        public static string BARBER_SHOP_WITH_THIS_NAME_ALREADY_EXISTS {
+            get {
+                return ResourceManager.GetString("BARBER_SHOP_WITH_THIS_NAME_ALREADY_EXISTS", resourceCulture);
+            }
+        }
     }
 }

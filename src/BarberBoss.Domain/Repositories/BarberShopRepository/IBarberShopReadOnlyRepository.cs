@@ -17,4 +17,11 @@ public interface IBarberShopReadOnlyRepository
     /// <param name="id">long</param>
     /// <returns>BarberShop</returns>
     Task<BarberShop?> GetById(long id);
+
+    /// <summary>
+    /// Checks if a barber shop with a certain name already exists
+    /// </summary>
+    /// <param name="name">string</param>
+    /// <returns>bool</returns>
+    Task<bool> CheckIfBarberShopExists(string name);
 }
