@@ -1,3 +1,4 @@
+using BarberBoss.Application.UseCases.BarberShops.GetAll;
 using BarberBoss.Application.UseCases.BarberShops.Register;
 using BarberBoss.Communication.DTOs.Request.BarberShopRequests;
 using BarberBoss.Communication.DTOs.Response.BarberShopResponses;
@@ -12,14 +13,20 @@ public class BarberShopController : ControllerBase
     /// <summary>
     /// Gets all barber shops for a specific user.
     /// </summary>
+    /// <param name="useCase">IGetAllBarberShopsUseCase</param>
     /// <param name="userId">long</param>
     /// <returns>IEnumerable of ResponseBarberShopJson</returns>
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<IEnumerable<ResponseBarberShopJson>>> GetAllByUserId([FromQuery] long userId) {
-        throw new NotImplementedException();
+    public async Task<ActionResult<IEnumerable<ResponseBarberShopJson>>> GetAllByUserId(
+        [FromServices] IGetAllBarberShopsUseCase useCase,
+        [FromQuery] long userId)
+    {
+        var response = await useCase.Execute(userId);
+
+        return Ok(response);
     }
 
     /// <summary>
