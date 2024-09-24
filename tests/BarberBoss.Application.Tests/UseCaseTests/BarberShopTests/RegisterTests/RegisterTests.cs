@@ -1,10 +1,12 @@
 using AutoMapper;
 using BarberBoss.Application.Mappings;
 using BarberBoss.Application.UseCases.BarberShops.Register;
+using BarberBoss.Communication.DTOs.Request.BarberShopRequests;
 using BarberBoss.Domain.Repositories;
 using BarberBoss.Infrastructure.DataAccess;
 using BarberBoss.Infrastructure.DataAccess.Repositories;
 using BarberBoss.Tests.Utilities.Requests;
+using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 
@@ -50,5 +52,21 @@ public class RegisterTests
             barberShopRepository,
             unitOfWork.Object,
             _mapper);
+    }
+
+    /// <summary>
+    /// Tests if barber shop registration is successful
+    /// </summary>
+    [Fact]
+    public async Task BarberShop_Register_Should_Be_Successful()
+    {
+        var newBarberShop = BarberShopBuilder.Build();
+        var request = _mapper.Map<RequestRegisterBarberShopJson>(newBarberShop);
+        
+        var result = await _registerBarberShopUseCase.Execute(request);
+        
+        result.Should().NotBeNull();
+        result.Name.Should().BeEquivalentTo(newBarberShop.Name);
+        result.UserId.Should().Be(newBarberShop.UserId);
     }
 }
