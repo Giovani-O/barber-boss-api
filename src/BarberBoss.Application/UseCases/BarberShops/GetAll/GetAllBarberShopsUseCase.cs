@@ -11,7 +11,6 @@ namespace BarberBoss.Application.UseCases.BarberShops.GetAll;
 public class GetAllBarberShopsUseCase : IGetAllBarberShopsUseCase
 {
     private readonly IBarberShopReadOnlyRepository _readOnlyRepository;
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
 
     public GetAllBarberShopsUseCase(
@@ -20,7 +19,6 @@ public class GetAllBarberShopsUseCase : IGetAllBarberShopsUseCase
         IMapper mapper)
     {   
         _readOnlyRepository = readOnlyRepository;
-        _unitOfWork = unitOfWork;
         _mapper = mapper;
     }
 
