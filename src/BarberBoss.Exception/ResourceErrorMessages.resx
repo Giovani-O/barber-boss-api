@@ -60,4 +60,7 @@
     <data name="ID_IS_EMPTY" xml:space="preserve">
         <value>The Id cannot be empty</value>
     </data>
+    <data name="BARBER_SHOPS_NOT_FOUND" xml:space="preserve">
+        <value>No barber shops were found for this user</value>
+    </data>
 </root>

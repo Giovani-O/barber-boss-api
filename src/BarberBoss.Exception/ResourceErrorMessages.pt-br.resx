@@ -53,4 +53,7 @@
     <data name="ID_IS_EMPTY" xml:space="preserve">
         <value>O Id não pode ser vazio</value>
     </data>
+    <data name="BARBER_SHOPS_NOT_FOUND" xml:space="preserve">
+        <value>Nenhuma barbearia encontrada para esse usuário</value>
+    </data>
 </root>

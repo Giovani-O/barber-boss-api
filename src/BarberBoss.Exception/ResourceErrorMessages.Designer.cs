@@ -128,5 +128,11 @@ namespace BarberBoss.Exception {
                 return ResourceManager.GetString("ID_IS_EMPTY", resourceCulture);
             }
         }
+        
+        public static string BARBER_SHOPS_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("BARBER_SHOPS_NOT_FOUND", resourceCulture);
+            }
+        }
     }
 }
