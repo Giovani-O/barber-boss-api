@@ -26,6 +26,8 @@ public class GetBarberShopByIdUseCase : IGetBarberShopByIdUseCase
     /// <exception cref="NotFoundException"></exception>
     public async Task<ResponseBarberShopJson> Execute(long id)
     {
+        Validate(id);
+        
         var barberShop = await _readOnlyRepository.GetById(id);
 
         if (barberShop is null)
@@ -38,5 +40,21 @@ public class GetBarberShopByIdUseCase : IGetBarberShopByIdUseCase
 
         var response = _mapper.Map<ResponseBarberShopJson>(barberShop);
         return response;
+    }
+
+    /// <summary>
+    /// Check if the id is valid
+    /// </summary>
+    /// <param name="id">long</param>
+    /// <exception cref="ErrorOnValidationException"></exception>
+    private void Validate(long id)
+    {
+        if (id <= 0)
+        {
+            throw new ErrorOnValidationException(new Dictionary<string, List<string>>()
+            {
+                {nameof(BarberShop.Id), [ResourceErrorMessages.ID_IS_INVALID] }
+            });
+        }
     }
 }
