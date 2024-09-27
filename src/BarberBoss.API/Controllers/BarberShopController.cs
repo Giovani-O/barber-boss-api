@@ -1,4 +1,5 @@
 using BarberBoss.Application.UseCases.BarberShops.GetAll;
+using BarberBoss.Application.UseCases.BarberShops.GetById;
 using BarberBoss.Application.UseCases.BarberShops.Register;
 using BarberBoss.Communication.DTOs.Request.BarberShopRequests;
 using BarberBoss.Communication.DTOs.Response.BarberShopResponses;
@@ -32,15 +33,20 @@ public class BarberShopController : ControllerBase
     /// <summary>
     /// Gets a barber shop by id.
     /// </summary>
+    /// <param name="useCase">IGetBarberShopByIdUseCase</param>
     /// <param name="id">long</param>
     /// <returns>ResponseBarberShopJson</returns>
     [HttpGet("GetById")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ResponseBarberShopJson>> GetById([FromQuery] long id)
+    public async Task<ActionResult<ResponseBarberShopJson>> GetById(
+        [FromServices] IGetBarberShopByIdUseCase useCase,
+        [FromQuery] long id)
     {
-        throw new NotImplementedException();
+        var response = await useCase.Execute(id);
+
+        return Ok(response);
     }
 
     /// <summary>

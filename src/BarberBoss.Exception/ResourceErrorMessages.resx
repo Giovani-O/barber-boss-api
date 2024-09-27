@@ -63,4 +63,7 @@
     <data name="BARBER_SHOPS_NOT_FOUND" xml:space="preserve">
         <value>No barber shops were found for this user</value>
     </data>
+    <data name="BARBER_SHOP_NOT_FOUND" xml:space="preserve">
+        <value>The specified barber shop wasn't found</value>
+    </data>
 </root>

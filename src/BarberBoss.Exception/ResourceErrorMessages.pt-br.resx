@@ -56,4 +56,7 @@
     <data name="BARBER_SHOPS_NOT_FOUND" xml:space="preserve">
         <value>Nenhuma barbearia encontrada para esse usuário</value>
     </data>
+    <data name="BARBER_SHOP_NOT_FOUND" xml:space="preserve">
+        <value>A barbearia especificada não foi encontrada</value>
+    </data>
 </root>
