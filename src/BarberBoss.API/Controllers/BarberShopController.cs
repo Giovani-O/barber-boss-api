@@ -2,6 +2,7 @@ using BarberBoss.Application.UseCases.BarberShops.Delete;
 using BarberBoss.Application.UseCases.BarberShops.GetAll;
 using BarberBoss.Application.UseCases.BarberShops.GetById;
 using BarberBoss.Application.UseCases.BarberShops.Register;
+using BarberBoss.Application.UseCases.BarberShops.Update;
 using BarberBoss.Communication.DTOs.Request.BarberShopRequests;
 using BarberBoss.Communication.DTOs.Response.BarberShopResponses;
 using Microsoft.AspNetCore.Mvc;
@@ -70,15 +71,21 @@ public class BarberShopController : ControllerBase
     /// <summary>
     /// Updates an existing barber shop.
     /// </summary>
+    /// <param name="useCase">IUpdateBarberShopUseCase</param>
     /// <param name="id">long</param>
     /// <param name="request">RequestUpdateBarberShopJson</param>
     [HttpPut]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> Update([FromQuery] long id, [FromBody] RequestUpdateBarberShopJson request)
+    public async Task<ActionResult> Update(
+        [FromServices] IUpdateBarberShopUseCase useCase,
+        [FromQuery] long id, 
+        [FromBody] RequestUpdateBarberShopJson request)
     {
-        throw new NotImplementedException();
+        await useCase.Execute(id, request);
+
+        return NoContent();
     }
 
     /// <summary>

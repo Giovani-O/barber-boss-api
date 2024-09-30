@@ -22,6 +22,12 @@ public class DeleteBarberShopUseCase : IDeleteBarberShopUseCase
         _unitOfWork = unitOfWork;
     }
     
+    /// <summary>
+    /// Deletes a barber shop by id
+    /// </summary>
+    /// <param name="id">long</param>
+    /// <exception cref="NotFoundException">Thrown if barber shop is not found</exception>
+    /// <exception cref="ErrorOnExecution">Thrown if an error happens during the execution</exception>
     public async Task Execute(long id)
     {
         var barberShop = await _readOnlyRepository.GetById(id);
