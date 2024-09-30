@@ -1,3 +1,4 @@
+using BarberBoss.Application.UseCases.BarberShops.Delete;
 using BarberBoss.Application.UseCases.BarberShops.GetAll;
 using BarberBoss.Application.UseCases.BarberShops.GetById;
 using BarberBoss.Application.UseCases.BarberShops.Register;
@@ -83,13 +84,19 @@ public class BarberShopController : ControllerBase
     /// <summary>
     /// Delete a barber shop by id.
     /// </summary>
+    /// <param name="useCase">IDeleteBarberShopUseCase</param>
     /// <param name="id">long</param>
+    /// <returns>NoContent</returns>
     [HttpDelete]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> Delete([FromQuery] long id)
+    public async Task<ActionResult> Delete(
+        [FromServices] IDeleteBarberShopUseCase useCase,
+        [FromQuery] long id)
     {
-        throw new NotImplementedException();
+        await useCase.Execute(id);
+
+        return NoContent();
     }
 }
